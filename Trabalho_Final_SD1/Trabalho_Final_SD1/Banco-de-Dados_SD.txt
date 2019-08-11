@@ -1,0 +1,26 @@
+DROP DATABASE banco;
+CREATE DATABASE banco;
+USE banco;
+create table conta(
+ nome varchar(255),
+ numero_conta int not null auto_increment,
+ senha varchar(255) not null,
+ saldo decimal(10,2),
+ primary key(numero_conta)
+);
+
+create table movimentacao(
+ id_transacao int not null auto_increment,
+ numero_conta int not null ,
+ data_transacao TIMESTAMP not null,
+ valor decimal(10,2) not null default 0,
+ tipo_transacao varchar(1) not null,
+ tipo varchar(1) not null,
+ conta_destino int,
+ primary key(id_transacao)
+);
+
+
+INSERT INTO conta VALUES ('Daniel', 1, '12345', 10 );
+INSERT INTO conta VALUES ('Luiggi', 2, '123456', 12 );
+INSERT INTO movimentacao VALUES (1, 2, '2008-01-01 00:00:01', 100, 'd', 'c', NULL);
